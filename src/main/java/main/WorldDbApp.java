@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import operations.SelectOperation;
 
 public class WorldDbApp extends Application {
 	private Connection con;
@@ -58,6 +59,25 @@ public class WorldDbApp extends Application {
 		} else {
 			tableSelector.getItems().add("--- SKATI ---");
 			tableSelector.getItems().addAll(databaseView);
+		}
+		
+		btnSelect.setOnAction(e -> loadData());
+		
+		// Šeit vēl jāturpina mums kopā....
+	}
+	
+	private void loadData() {
+		String selectedTable = tableSelector.getValue();
+		if(selectedTable == null || 
+				selectedTable.startsWith("---"))
+			return;
+		
+		try {
+			currentColumns = 
+			SelectOperation.populateTable(
+					con, selectedTable, table);
+		} catch(Exception e) {
+			showAlert("Kļūda atlasot datus", e.getMessage());
 		}
 	}
 	
