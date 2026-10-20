@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import operations.SelectOperation;
+import operations.ViewManager;
 
 public class WorldDbApp extends Application {
 	private Connection con;
@@ -46,7 +47,7 @@ public class WorldDbApp extends Application {
 		/* PrimerDark(), NordDark()*/
 		try {
 			con = DatabaseConnection.getConnection();
-			// databaseView = ViewManager.getDatabaseViews(con);
+			databaseView = ViewManager.getDatabaseViews(con);
 			
 		} catch (Exception e) {
 			showAlert("Savienojuma kļūda: ", e.getMessage());
@@ -117,7 +118,7 @@ public class WorldDbApp extends Application {
 		alert.setContentText(msg);
 		alert.showAndWait();
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
