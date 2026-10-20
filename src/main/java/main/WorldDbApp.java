@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.protobuf.Value;
-
 import atlantafx.base.theme.PrimerLight;
 import db.DatabaseConnection;
 import javafx.application.Application;
@@ -25,7 +23,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import operations.InsertOperation;
 import operations.SelectOperation;
+import operations.UpdateOperation;
 import operations.ViewManager;
 
 public class WorldDbApp extends Application {
