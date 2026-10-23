@@ -44,3 +44,5 @@ public class UpdateOperation {
 		}
 	}
 }
+
+// REALIZĒT tabulas datu kārtošanu!
